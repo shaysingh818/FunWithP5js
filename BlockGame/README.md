@@ -1,4 +1,6 @@
 
+![alt text](https://github.com/shaysingh818/FunWithP5js/blob/master/BlockGame/blockgame.png)
+
 # Features
 1. The goal of the game is two create a column  of blocks of the same color. If the column has all of the same colors, the entire grid should shift and delete the vertical column.
 
