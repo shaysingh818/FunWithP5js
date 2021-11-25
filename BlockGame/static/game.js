@@ -3,48 +3,27 @@ let screenHeight = 1000;
 
 
 function preload(){
-    loadGrid(); 
+	initGrid(10, 10); 
+    //loadGrid(); 
 }
 
 function setup(){
-	console.log(grid); 
+	console.log(board); 
     createCanvas(screenWidth, screenHeight);    
 }
 
 function keyPressed(){
 	if(keyCode == 72){
-		switchBlocks(); 
+		makeTransition(); 
 	}
 }
 
 // capture which block from the array was pressed
 function mousePressed(){
 
-	checkGrid(); 
+	boardClicked();
+	verticalCheck();  
 
-	if(moves.length > 1){
-		
-		console.log(gridIndices);
-		let color = grid[0][1].col;
-		//grid[0][1].setColor(grid[0][0].col);
-		//grid[0][0].setColor(color); 
-		moves = [];  
-
-	}
-
-	// checks of grid is clicked
-	for(let i = 0; i < 10; i++){
-		for(let j = 0; j < 10; j++){
-			if(grid[i][j].onBlock()){
-				moves.push(grid[i][j]);
-				gridIndices.push(i, j, grid[i][j].col); 
-			} 
-		}
-	}
-
-	
-	
-	console.log(moves);
 }
 
 
@@ -99,7 +78,7 @@ function draw(){
  
 	for(let i = 0; i < 10; i++){
 		for(let j = 0; j < 10; j++){
-			grid[i][j].display(); 
+			board[i][j].display(); 
 		}
 	}
 
